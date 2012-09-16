@@ -1,27 +1,22 @@
 describe("Storages::StorageManager", function() {
-  var storageManager;
+  var storageManager, eventName, eventData;
+
   beforeEach(function() {
     storageManager = new TaskBoard.Storages.StorageManager();
+    spyOn(TaskBoard.observers, 'trigger').andCallFake(function(evName, evData) {
+      eventName = evName;
+      eventData = evData;
+    });
   });
 
   context("after initialize", function() {
     it("should instantiate both dummy and local storages", function() {
-
       expect(storageManager.dummyStorage instanceof TaskBoard.Storages.DummyStorage).toBeTruthy();
       expect(storageManager.localStorage instanceof TaskBoard.Storages.LocalStorage).toBeTruthy();
     });
   });
 
   describe(".loadIssues", function() {
-    var eventName, eventData;
-
-    beforeEach(function() {
-      spyOn(TaskBoard.observers, 'trigger').andCallFake(function(evName, evData) {
-        eventName = evName;
-        eventData = evData;
-      });
-    });
-
     context("forced to load seed data", function() {
       beforeEach(function() {
         spyOn(storageManager, 'isNeedToLoadSeed').andCallFake(function() {
@@ -37,7 +32,7 @@ describe("Storages::StorageManager", function() {
         storageManager.loadIssues();
 
         expect(eventName).toBe("issues::loaded");
-        expect(eventData).toBe("aloha!");
+        expect(eventData.data).toBe("aloha!");
 
         expect(storageManager.isNeedToLoadSeed).toHaveBeenCalled();
         expect(storageManager.dummyStorage.loadIssues).toHaveBeenCalled();
@@ -58,7 +53,7 @@ describe("Storages::StorageManager", function() {
         storageManager.loadIssues()
 
         expect(eventName).toBe("issues::loaded");
-        expect(eventData).toBe("hello!");
+        expect(eventData.data).toBe("hello!");
 
         expect(storageManager.isNeedToLoadSeed).toHaveBeenCalled();
         expect(storageManager.localStorage.loadIssues).toHaveBeenCalled();

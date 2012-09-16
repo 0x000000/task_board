@@ -61,7 +61,7 @@ describe("Models::Issue", function() {
       issue.save();
 
       expect(eventName).toEqual('issue::save');
-      expect(eventData).toEqual(issue.toJSON());
+      expect(eventData.issueJSON).toEqual(issue.toJSON());
     });
   });
 });

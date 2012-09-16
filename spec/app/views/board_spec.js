@@ -1,8 +1,12 @@
 describe("Views::Board", function() {
-  var board;
+  var board, eventName, eventData;
 
   beforeEach(function() {
     board = new TaskBoard.Views.Board();
+    spyOn(TaskBoard.observers, 'trigger').andCallFake(function(evName, evData) {
+      eventName = evName;
+      eventData = evData;
+    });
   });
 
   context("after instantiate", function() {
@@ -24,24 +28,21 @@ describe("Views::Board", function() {
 
   describe(".assignIssuesToSections", function() {
     var fakeTodoSection, fakeInProgressSection, fakeDoneSection;
-    var issues = [
+    var issues = {issueModels: [
       {id: 1, type: 'bug', name: 'A', status: 'todo'},
       {id: 2, type: 'task', name: 'B', status: 'in_progress'},
       {id: 3, type: 'task', name: 'C', status: 'in_progress'},
       {id: 3, type: 'task', name: 'D', status: 'done'}
-    ];
+    ]};
 
     beforeEach(function() {
-      fakeTodoSection = { append: function() {
-      } };
+      fakeTodoSection = { append: function() {} };
       spyOn(fakeTodoSection, 'append');
 
-      fakeInProgressSection = { append: function() {
-      } };
+      fakeInProgressSection = { append: function() {} };
       spyOn(fakeInProgressSection, 'append');
 
-      fakeDoneSection = { append: function() {
-      } };
+      fakeDoneSection = { append: function() {} };
       spyOn(fakeDoneSection, 'append');
 
       board.$sections = {

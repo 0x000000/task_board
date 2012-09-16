@@ -21,7 +21,7 @@
     }
 
     storage.loadIssues($.proxy(function(issues) {
-      TaskBoard.observers.trigger("issues::loaded", issues);
+      TaskBoard.observers.trigger("issues::loaded", {data: issues});
     }, this));
   };
 

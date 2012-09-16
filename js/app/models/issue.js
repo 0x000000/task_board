@@ -15,7 +15,7 @@
   };
 
   Models.Issue.prototype.save = function() {
-    TaskBoard.observers.trigger("issue::save", this.toJSON());
+    TaskBoard.observers.trigger("issue::save", {issueJSON: this.toJSON()});
   };
 
 })(TaskBoard, TaskBoard.Models);
