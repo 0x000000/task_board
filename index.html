@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task board</title>
+    <meta charset="utf-8">
+
+    <link type="text/css" href="css/lib/normalize.css" media="all" rel="stylesheet"/>
+
+    <link type="text/css" href="css/app/board.css" media="all" rel="stylesheet"/>
+    <link type="text/css" href="css/app/issue.css" media="all" rel="stylesheet"/>
+
+
+    <script type="text/javascript" src="js/lib/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-1.8.23.custom.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.cookie.1.2.js"></script>
+
+    <script type="text/javascript" src="js/app/app.js"></script>
+
+    <script type="text/javascript" src="js/app/storages/dummy_storage.js"></script>
+    <script type="text/javascript" src="js/app/storages/local_storage.js"></script>
+    <script type="text/javascript" src="js/app/storages/storage_manager.js"></script>
+
+    <script type="text/javascript" src="js/app/models/board.js"></script>
+    <script type="text/javascript" src="js/app/models/issue.js"></script>
+
+    <script type="text/javascript" src="js/app/views/board.js"></script>
+    <script type="text/javascript" src="js/app/views/issue.js"></script>
+
+    <!-- Specs -->
+    <link rel="stylesheet" type="text/css" href="spec/lib/jasmine-1.2.0/jasmine.css">
+
+    <script type="text/javascript" src="spec/lib/jasmine-1.2.0/jasmine.js"></script>
+    <script type="text/javascript" src="spec/lib/jasmine-1.2.0/jasmine-html.js"></script>
+    <script type="text/javascript" src="spec/spec_helper.js"></script>
+
+    <script type="text/javascript" src="spec/app/app_spec.js"></script>
+
+    <script type="text/javascript" src="spec/app/storages/dummy_storage_spec.js"></script>
+    <script type="text/javascript" src="spec/app/storages/local_storage_spec.js"></script>
+    <script type="text/javascript" src="spec/app/storages/storage_manager_spec.js"></script>
+
+    <script type="text/javascript" src="spec/app/models/board_spec.js"></script>
+    <script type="text/javascript" src="spec/app/models/issue_spec.js"></script>
+
+    <script type="text/javascript" src="spec/app/views/board_spec.js"></script>
+    <script type="text/javascript" src="spec/app/views/issue_spec.js"></script>
+</head>
+<body>
+
+<header>
+    <a class="add_new_issue" href="#">+ Add new issue</a>
+</header>
+
+<div class="board">
+    <div class="section">
+        <h2>ToDo</h2>
+        <div class="todo"></div>
+    </div>
+    <div class="section">
+        <h2>In Progress</h2>
+        <div class="in_progress"></div>
+    </div>
+    <div class="section">
+        <h2>Done</h2>
+        <div class="done"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/app/boot.js"></script>
+</body>
+</html>

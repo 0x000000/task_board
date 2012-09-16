@@ -1,0 +1,25 @@
+header {
+    padding: 15px 0 15px 0;
+}
+
+header .add_new_issue {
+    text-decoration: none;
+    margin-left: 15px;
+    border-bottom: 1px dashed;
+    font-size: 18px;
+}
+
+.board .section {
+    border: 1px solid lightgray;
+    width: 33%;
+    min-width: 300px;
+    min-height: 260px;
+    float: left;
+}
+
+.board .section h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}

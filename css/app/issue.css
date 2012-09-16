@@ -1,0 +1,33 @@
+.issue {
+    float: left;
+    height: 100px;
+    width: 270px;
+    margin: 3px;
+    padding: 5px;
+    border: 1px solid gray;
+    position: relative;
+}
+
+.issue.bag {
+    background-color: #ffcccf;
+}
+
+.issue.task {
+    background-color: #abd1ff;
+}
+
+.issue .uid {
+
+}
+
+.issue .uid:before {
+    content: '#';
+}
+
+.issue .delete {
+    position: absolute;
+    text-decoration: none;
+    margin-left: 15px;
+    border-bottom: 1px dashed;
+    right: 8px;
+}
