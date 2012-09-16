@@ -12,6 +12,7 @@
   Views.Issue.prototype.template = function() {
     return '<div class="issue ' + this.model.type + '">' +
       '<span class="uid">' + this.model.id + '</span>' +
+      '<a class="edit" href="#">edit</a>' +
       '<a class="delete" href="#">delete</a>' +
       '<p class="name">' + this.model.name + '</p>' +
       '</div>'

@@ -24,10 +24,16 @@
     content: '#';
 }
 
-.issue .delete {
+.issue .delete, .issue .edit {
     position: absolute;
     text-decoration: none;
-    margin-left: 15px;
     border-bottom: 1px dashed;
+}
+
+.issue .delete {
     right: 8px;
+}
+
+.issue .edit {
+    right: 60px;
 }
