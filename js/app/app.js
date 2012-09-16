@@ -6,7 +6,10 @@ window.TaskBoard = {
 
   storageManager: null,
   boardView:      null,
-  boardModel:     null
+  boardModel:     null,
+
+  NO_LOAD_SEED_COOKIE_KEY: 'TaskBoard_noNeedToLoadSeed',
+  EXPIRE_COOKIE_AFTER_DAYS: 1000
 };
 
 (function(TaskBoard) {

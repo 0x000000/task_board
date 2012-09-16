@@ -9,6 +9,10 @@ describe("Storages::StorageManager", function() {
     });
   });
 
+  afterEach(function(){
+    $.removeCookie(TaskBoard.NO_LOAD_SEED_COOKIE_KEY);
+  });
+
   context("after initialize", function() {
     it("should instantiate both dummy and local storages", function() {
       expect(storageManager.dummyStorage instanceof TaskBoard.Storages.DummyStorage).toBeTruthy();
@@ -108,19 +112,19 @@ describe("Storages::StorageManager", function() {
 
   describe(".disableLoadingSeed", function() {
     beforeEach(function() {
-      $.removeCookie('TaskBoard_noNeedToLoadSeed');
+      $.removeCookie(TaskBoard.NO_LOAD_SEED_COOKIE_KEY);
     });
 
     it("should set cookie", function() {
       storageManager.disableLoadingSeed();
-      expect($.cookie('TaskBoard_noNeedToLoadSeed')).toBeTruthy();
+      expect($.cookie(TaskBoard.NO_LOAD_SEED_COOKIE_KEY)).toBeTruthy();
     });
   });
 
   describe(".isNeedToLoadSeed", function() {
     context("when TaskBoard_noNeedToLoadSeed cookie exists", function() {
       beforeEach(function() {
-        $.removeCookie('TaskBoard_noNeedToLoadSeed');
+        $.removeCookie(TaskBoard.NO_LOAD_SEED_COOKIE_KEY);
       });
 
       it("should return true", function() {
@@ -130,7 +134,7 @@ describe("Storages::StorageManager", function() {
 
     context("when TaskBoard_noNeedToLoadSeed cookie exists", function() {
       beforeEach(function() {
-        $.cookie('TaskBoard_noNeedToLoadSeed', true);
+        $.cookie(TaskBoard.NO_LOAD_SEED_COOKIE_KEY, true);
       });
 
       it("should return false", function() {

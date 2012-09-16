@@ -1,9 +1,6 @@
 (function(TaskBoard, Storages) {
   "use strict";
 
-  var NO_LOAD_SEED_COOKIE_KEY = 'TaskBoard_noNeedToLoadSeed';
-  var EXPIRE_COOKIE_AFTER_DAYS = 1000;
-
   Storages.StorageManager = function() {
     this.dummyStorage = new Storages.DummyStorage();
     this.localStorage = new Storages.LocalStorage();
@@ -36,11 +33,11 @@
   };
 
   Storages.StorageManager.prototype.isNeedToLoadSeed = function() {
-    return !$.cookie(NO_LOAD_SEED_COOKIE_KEY);
+    return !$.cookie(TaskBoard.NO_LOAD_SEED_COOKIE_KEY);
   };
 
   Storages.StorageManager.prototype.disableLoadingSeed = function() {
-    $.cookie(NO_LOAD_SEED_COOKIE_KEY, true, {expires: EXPIRE_COOKIE_AFTER_DAYS});
+    $.cookie(TaskBoard.NO_LOAD_SEED_COOKIE_KEY, true, {expires: TaskBoard.EXPIRE_COOKIE_AFTER_DAYS});
   }
 
 })(TaskBoard, TaskBoard.Storages);
