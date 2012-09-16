@@ -128,8 +128,8 @@ describe("Storages::StorageManager", function() {
         $.removeCookie('TaskBoard_noNeedToLoadSeed');
       });
 
-      it("should return false", function() {
-        expect(storageManager.isNeedToLoadSeed).toBeFalsy();
+      it("should return true", function() {
+        expect(storageManager.isNeedToLoadSeed()).toBeTruthy();
       });
     });
 
@@ -139,7 +139,7 @@ describe("Storages::StorageManager", function() {
       });
 
       it("should return false", function() {
-        expect(storageManager.isNeedToLoadSeed).toBeTruthy();
+        expect(storageManager.isNeedToLoadSeed()).toBeFalsy();
       });
 
     });
